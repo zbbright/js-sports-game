@@ -26,6 +26,13 @@ let team2Button = document.querySelector("#teamtwo-shoot-button");
 let left = document.querySelector(".left");
 let right = document.querySelector(".right");
 
+let ambience = document.querySelector("#ambience");
+ambience.volume = 0.02;
+let shotAudio = document.querySelector("#shot-audio");
+shotAudio.volume = 0.1;
+let goalAudio = document.querySelector("#goal-audio");
+goalAudio.volume = 1;
+
 function update() {
     team1NumGoals.innerHTML = team1goals;
     team1NumShots.innerHTML = team1shots;
@@ -33,6 +40,15 @@ function update() {
     team2NumShots.innerHTML = team2shots;
     team1MessageBox.innerHTML = team1message;
     team2MessageBox.innerHTML = team2message;
+    ambience.play();
+    
+    if (team1shots <= team2shots){
+        left.style.border = "3px solid black";
+        right.style.border = "2px solid darkgrey";
+    } else {
+        left.style.border = "2px solid darkgrey";
+        right.style.border = "3px solid black";
+    }
 };
 
 resetButton.addEventListener("click", function () {
@@ -44,6 +60,7 @@ resetButton.addEventListener("click", function () {
     team2shots = 0;
     team2goals = 0;
     update();
+    ambience.pause();
     team1MessageBox.innerHTML = "Let's play again!";
     team2MessageBox.innerHTML = "Let's play again!";
     left.style.backgroundColor = "rgba(255,255,255,0.7)";
@@ -51,27 +68,33 @@ resetButton.addEventListener("click", function () {
 });
 
 team1Button.addEventListener("click", function () {
-    team1shots += 1;
-    randomNumber = Math.floor(Math.random() * 5);
+    if (team1shots - team2shots < 1){
+        team1shots += 1;
+        randomNumber = Math.floor(Math.random() * 5);
     if (randomNumber > 1){
         team1goals += 1;
+        goalAudio.play();
         team1message = "&#127936; Swish! &#127936;";
     } else {
         team1message = "Airball! &#129318;";
+        shotAudio.play();
     }
-    update();
+    update();}
 });
 
 team2Button.addEventListener("click", function () {
+    if (team2shots - team1shots < 1){
     team2shots += 1;
     randomNumber = Math.floor(Math.random() * 5);
     if (randomNumber > 1){
         team2goals += 1;
+        goalAudio.play();
         team2message = "&#127936; Swish! &#127936;";
     } else {
         team2message = "Airball! &#129318;";
+        shotAudio.play();
     }
-    update();
+    update();}
 });
 
 
@@ -95,3 +118,8 @@ randomRight.addEventListener("click", function () {
     console.log("Color on right is rgb(" + random1 + ", " + random2 + ", " + random3 + ")");
     right.style.backgroundColor = "rgba(" + random1 + "," + random2 + "," + random3 + ",0.5)";
 })
+
+
+  
+  console.log("Hello");
+  sleep1(2000).then(() => { console.log("World!"); });
