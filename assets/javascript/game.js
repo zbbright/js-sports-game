@@ -118,8 +118,3 @@ randomRight.addEventListener("click", function () {
     console.log("Color on right is rgb(" + random1 + ", " + random2 + ", " + random3 + ")");
     right.style.backgroundColor = "rgba(" + random1 + "," + random2 + "," + random3 + ",0.5)";
 })
-
-
-  
-  console.log("Hello");
-  sleep1(2000).then(() => { console.log("World!"); });
