@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Game Challenge</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>My JS Game</h1>
+        <div id="reset-container">
+            <button id="reset-button">RESET</button><br>
+            NUMBER OF RESETS: <span id="num-resets">0</span>
+        </div>
+        <audio controls autoplay loop src="https://freesound.org/data/previews/472/472880_9890183-lq.mp3" type="audio/mpeg">
+        </audio>
+    </header>
+    <main>
+        <div class="clear"></div>
+        <div class="left">
+            <h2>
+                &mdash; Team 1 &mdash;
+            </h2>
+            <div class="goals">
+                SHOTS TAKEN: <span id="teamone-numshots">0</span><br>
+                GOALS: <span id="teamone-numgoals">0</span>
+            </div>
+            <div>
+                <button id="teamone-shoot-button">SHOOT</button>
+            </div>
+            <div>
+                <p id="team-one-message">Let's play!</p>
+            </div>
+            <div>
+                <button id="randomizer-one">Random color. Just 'cuz.</button>
+            </div>
+        </div>
+        <div class="right">
+            <h2>
+                &mdash; Team 2 &mdash;
+            </h2>
+            <div class="goals">
+                SHOTS TAKEN: <span id="teamtwo-numshots">0</span><br>
+                GOALS: <span id="teamtwo-numgoals">0</span>
+            </div>
+            <div>
+                <button id="teamtwo-shoot-button">SHOOT</button>
+            </div>
+            <div>
+                <p id="team-two-message">Let's play!</p>
+            </div>
+            <div>
+                <button id="randomizer-two">Random color. Just 'cuz.</button>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </main>
+    <script rel="javascript" src="./assets/javascript/game.js"></script>
+</body>
+</html>
